@@ -1,0 +1,34 @@
+﻿<body style="background-color: lightgoldenrodyellow;"> 
+    <div>
+        <a asp-action="Add" asp-controller="Note">
+            <button type="button" class="btn btn-success">Add Note</button>
+        </a>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var note in Model)
+                {
+                    <tr>
+                        <td>@note.Title</td>
+                        <td>@note.Text</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-Id="@note.Id">
+                                <button type="button" class="btn btn-warning">Edit</button>
+                            </a>
+                            <a asp-action="Delete" asp-route-Id="@note.Id">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

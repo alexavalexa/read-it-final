@@ -1,0 +1,21 @@
+﻿<body style="background-color: lightgoldenrodyellow;"> 
+
+    <h1>Edit note: </h1>
+    <form asp-action="Edit" asp-route-Id="@Model.Id">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" placeholder="Enter title" value="@Model.Title">
+        </div>
+        <div class="form-group">
+            <label>Text</label>
+            <input type="text" class="form-control" name="text" placeholder="Enter text" value="@Model.Text">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Confirm changes</button>
+            <a asp-action="Index" asp-controller="Note">
+                <button type="button" class="btn btn-secondary">Cancel</button>
+            </a>
+        </div>
+    </form>
+
+</body>

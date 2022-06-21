@@ -1,0 +1,20 @@
+﻿<body style="background-color: lightgoldenrodyellow;"> 
+
+    <form asp-action="DeleteConfirm" asp-route-Id="@Model.Id">
+        <div class="form-group">
+            <label for="book's title'">Title</label>
+            <input type="text" class="form-control" name="title" value="@Model.Title" disabled>
+        </div>
+        <div class="form-group">
+            <label for="book's author'">Text</label>
+            <input type="text" class="form-control" name="text" value="@Model.Text" disabled>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" asp-controller="Text">
+                <button type="button" class="btn btn-secondary">Cancel</button>
+            </a>
+        </div>
+    </form>
+
+</body>
