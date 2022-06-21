@@ -31,18 +31,16 @@ namespace ReadIt
                 options.UseMySQL("Server=localhost; Database=readitdb; Uid=root; Pwd=a1l6e0x9aMysql_; CharSet=utf8");
             });
             services.AddControllersWithViews();
-            services.AddIdentity<User, IdentityRole<int>>
-                (o => {
-                    o.Password.RequireDigit = false;
-                    o.Password.RequiredLength = 1;
-                    o.Password.RequireLowercase = false;
-                    o.Password.RequireUppercase = false;
-                    o.Password.RequiredUniqueChars = 0;
-                    o.Password.RequireNonAlphanumeric = false;
-                    o.SignIn.RequireConfirmedAccount = false;
-                    o.User.RequireUniqueEmail = false;
-                })
-                .AddEntityFrameworkStores<LibraryDbContext>();
+            services.AddIdentity<User, IdentityRole<int>>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 4;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireNonAlphanumeric = false;
+
+            })
+               .AddEntityFrameworkStores<LibraryDbContext>()
+               .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

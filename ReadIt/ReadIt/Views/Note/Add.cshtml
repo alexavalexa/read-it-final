@@ -3,13 +3,14 @@
     <h1>Add a note: </h1> 
     <form asp-action="Add">
         <div class="form-group">
-            <label>Title</label>
-            <input type="text" class="form-control" placeholder="Enter title" name="title">
+            <label>Note title</label>
+            <textarea input type="text" class="form-control" placeholder="Enter title" name="title"> </textarea>
         </div>
         <div class="form-group">
             <label>Text</label>
             <input type="text" class="form-control" placeholder="Enter text" name="text">
         </div>
+
         <div>
             <button type="submit" class="btn btn-primary">Add</button>
             <a asp-action="Index" asp-controller="Note">
